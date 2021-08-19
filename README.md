@@ -4,7 +4,11 @@
 
 In the project directory, you can run:
 
+### Navigate to root directory
+
 ### cd `INVENTORY-LIST`
+
+### Install required dependencies
 
 ### `npm install`
 
