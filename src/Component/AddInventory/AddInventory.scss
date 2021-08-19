@@ -1,0 +1,56 @@
+.add-dialog {
+	.MuiPaper-root {
+		min-height: 300px;
+		min-width: 500px;
+	}
+
+	.addInventory-wrap {
+		padding: 20px 30px;
+		border: 1px solid rgba(46, 46, 49, 0.12);
+		.addInventory-heading {
+			color: #2e2e31;
+			font-family: "Proxima Nova Regular" !important;
+			font-size: 16px;
+			font-weight: bold;
+			letter-spacing: 0;
+			line-height: 19px;
+		}
+	}
+	.addInventory-body {
+		padding: 10px 30px !important;
+		overflow-y: auto;
+		.add-formWrapper {
+			margin: 0;
+			.formItem {
+				margin-bottom: 20px;
+			}
+			.formItem:focus-within {
+				.formLabel {
+					color: #374fc7;
+				}
+				.textField {
+					border: 1px solid #374fc7;
+					outline: none;
+				}
+			}
+			.formLabel {
+				color: #2e2e31;
+				font-size: 14px;
+				font-weight: bold;
+				letter-spacing: 0.8px;
+				line-height: 32px;
+			}
+			.textField {
+				width: 100%;
+				border: 1px solid #2e2e31;
+				border-radius: 4px;
+				background-color: #ffffff;
+				color: #000;
+				font-family: "Proxima Nova Regular";
+				line-height: 0px;
+				padding: 16px;
+				font-size: 16px;
+			}
+		}
+	}
+}

@@ -1,0 +1,23 @@
+.confirmation-dialog {
+	min-height: 360px;
+	text-align: center;
+	.head {
+	}
+	.actions {
+		margin: 32px 0;
+		.btn-submit {
+			background-color: #374fc7;
+			color: #ffffff;
+			border: none;
+			margin-left: 16px;
+			font-weight: bold;
+		}
+		.btn-cancel {
+			background-color: #fff;
+			color: #374fc7;
+			border: 1px solid #374fc7;
+			font-weight: bold;
+			margin-left: 16px;
+		}
+	}
+}
