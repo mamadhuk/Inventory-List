@@ -1,54 +1,19 @@
 import * as actionTypes from "../actionType";
-
-let InventoryItemList = [
-	{
-		id: 1,
-		name: "name 1",
-		desc: "desc 1",
-		price: "1001",
-	},
-	{
-		id: 2,
-		name: "name 2",
-		desc: "desc 2",
-		price: "2002",
-	},
-	{
-		id: 3,
-		name: "name 3",
-		desc: "desc 3",
-		price: "3003",
-	},
-	{
-		id: 4,
-		name: "name 4",
-		desc: "desc 4",
-		price: "4004",
-	},
-	{
-		id: 5,
-		name: "name 5",
-		desc: "desc 5",
-		price: "5005",
-	},
-	{
-		id: 6,
-		name: "name 6",
-		desc: "desc 6",
-		price: "6006",
-	},
-];
+import axios from "axios";
 
 const setInventoryList = (data) => ({
 	type: actionTypes.SET_INVENTORY_LIST,
 	data,
 });
 export const getInventoryList = () => (dispatch) => {
-	dispatch(setInventoryList(InventoryItemList));
+	axios.get(`https://fakestoreapi.com/products`).then((res) => {
+		const resp = res.data;
+		dispatch(setInventoryList(resp));
+	});
 };
 
 export const resetInventoryList = () => ({
-	type: actionTypes.SET_INVENTORY_LIST,
+	type: actionTypes.RESET_INVENTORY_LIST,
 });
 
 export const deleteInventoryItemFromList = (id) => ({
@@ -57,7 +22,10 @@ export const deleteInventoryItemFromList = (id) => ({
 });
 
 export const deleteInventoryItem = (id) => (dispatch) => {
-	dispatch(deleteInventoryItemFromList(id));
+	axios.delete(`https://fakestoreapi.com/products/${id}`).then((res) => {
+		const resp = res.data;
+		dispatch(deleteInventoryItemFromList(resp.id));
+	});
 };
 
 export const addItemToList = (data) => ({
@@ -66,10 +34,20 @@ export const addItemToList = (data) => ({
 });
 
 export const addInventory = (data, callback) => (dispatch) => {
-	dispatch(addItemToList(data));
-	if (callback) {
-		callback();
-	}
+	const body = {
+		title: data.title,
+		price: data.price,
+		description: data.description,
+		image: "https://i.pravatar.cc",
+		category: "",
+	};
+	axios.post(`https://fakestoreapi.com/products`, body).then((res) => {
+		const resp = res.data;
+		dispatch(addItemToList(resp));
+		if (callback) {
+			callback();
+		}
+	});
 };
 
 export const updateItemToList = (data) => ({
@@ -78,8 +56,20 @@ export const updateItemToList = (data) => ({
 });
 
 export const updateInventory = (data, callback) => (dispatch) => {
-	dispatch(updateItemToList(data));
-	if (callback) {
-		callback();
-	}
+	const body = {
+		title: data.title,
+		price: data.price,
+		description: data.description,
+		image: "https://i.pravatar.cc",
+		category: "",
+	};
+	axios
+		.put(`https://fakestoreapi.com/products/${data.id}`, body)
+		.then((res) => {
+			const resp = res.data;
+			dispatch(updateItemToList(data));
+			if (callback) {
+				callback();
+			}
+		});
 };

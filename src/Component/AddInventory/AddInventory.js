@@ -17,16 +17,16 @@ const AddInventory = ({ onClose, openDialog, successCallback, ...rest }) => {
 		if (rest.inventoryData && Object.keys(rest.inventoryData).length) {
 			return {
 				id: rest.inventoryData.id,
-				name: rest.inventoryData.name,
-				desc: rest.inventoryData.desc,
+				title: rest.inventoryData.title,
+				description: rest.inventoryData.description,
 				price: rest.inventoryData.price,
 			};
 		}
 
 		return {
 			id: generateRandonId(),
-			name: "",
-			desc: "",
+			title: "",
+			description: "",
 			price: "",
 		};
 	};
@@ -88,14 +88,14 @@ const AddInventory = ({ onClose, openDialog, successCallback, ...rest }) => {
 								<DialogContent className="addInventory-body">
 									<div className="add-formWrapper">
 										<div className="formItem">
-											<label htmlFor="name" className="formLabel">
+											<label htmlFor="title" className="formLabel">
 												Name
 											</label>
 											<input
 												required
-												id="name"
-												name="name"
-												value={values.name}
+												id="title"
+												name="title"
+												value={values.title}
 												onChange={handleChange}
 												onBlur={handleBlur}
 												type="text"
@@ -103,14 +103,14 @@ const AddInventory = ({ onClose, openDialog, successCallback, ...rest }) => {
 											/>
 										</div>
 										<div className="formItem">
-											<label htmlFor="desc" className="formLabel">
+											<label htmlFor="description" className="formLabel">
 												Description
 											</label>
 											<input
 												required
-												id="desc"
-												name="desc"
-												value={values.desc}
+												id="description"
+												name="description"
+												value={values.description}
 												onChange={handleChange}
 												onBlur={handleBlur}
 												type="text"

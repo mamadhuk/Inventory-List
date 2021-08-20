@@ -23,7 +23,7 @@ const AdminLayout = (props) => {
 				<AppBar position="static">
 					<Toolbar>
 						<span variant="h6" className={classes.title}>
-							<b>Inventory List</b>
+							<b>Inventory</b>
 						</span>
 					</Toolbar>
 				</AppBar>

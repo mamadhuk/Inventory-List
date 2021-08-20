@@ -11,7 +11,7 @@ const inventoryReducer = (state = INITIAL_STATE, action) => {
 		case actionTypes.SET_INVENTORY_LIST:
 			return {
 				...state,
-				data: [...action.data],
+				data: [...state.data, ...action.data],
 				size: action.data.length,
 			};
 		case actionTypes.DELETE_INVENTORY_ITEM:

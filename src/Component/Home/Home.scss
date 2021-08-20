@@ -5,8 +5,8 @@
 			cursor: pointer;
 		}
 	}
-	.add-btn {
-		margin-top: 16px;
-		text-align: right;
+	.action-header {
+		display: flex;
+		justify-content: space-between;
 	}
 }

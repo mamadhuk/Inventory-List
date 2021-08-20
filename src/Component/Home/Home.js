@@ -70,6 +70,16 @@ const Home = (props) => {
 					setDeleteModal(false);
 				}}
 			/>
+			<div className="action-header">
+				<div className="header">
+					<h4>Inventory List</h4>
+				</div>
+				<div>
+					<Button variant={"contained"} onClick={() => addOpenMOdal()}>
+						Add Item
+					</Button>
+				</div>
+			</div>
 			<TableContainer>
 				<Table
 					className="tableContainer"
@@ -100,8 +110,8 @@ const Home = (props) => {
 							items.map((item, index) => (
 								<TableRow key={index}>
 									<TableCell align="left">{item.id}</TableCell>
-									<TableCell align="left">{item.name}</TableCell>
-									<TableCell align="left">{item.desc}</TableCell>
+									<TableCell align="left">{item.title}</TableCell>
+									<TableCell align="left">{item.description}</TableCell>
 									<TableCell align="left">{item.price}</TableCell>
 									<TableCell align="right">
 										<div className="actions">
@@ -123,11 +133,6 @@ const Home = (props) => {
 					</TableBody>
 				</Table>
 			</TableContainer>
-			<div className="add-btn">
-				<Button variant={"contained"} onClick={() => addOpenMOdal()}>
-					Add Item
-				</Button>
-			</div>
 		</div>
 	);
 };
